@@ -18,7 +18,8 @@ const asynchDB = () => {
 
   const get = async (table, id = null) => {
     if (!table) {
-      throw new Error('No table passed in');
+      console.log('no table passed in. returning entire db');
+      return db;
     }
     if (!id) {
       console.log(`getting ${table} from db`);
