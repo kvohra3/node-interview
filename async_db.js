@@ -30,16 +30,14 @@ const asynchDB = () => {
   };
 
   const put = (table, data = null) => {
-    if (!data || !table) {
+    if (!data || !table || !data[table]) {
       throw new Error('No data or table is passed in');
     }
-    if (db[table]) {
-      console.log(`adding ${JSON.stringify(data)} to ${table}`);
-      db[table].push(data);
-    }
+
     setTimeout(() => {
-      db[table] = data;
+      db[table].push(data);
     }, 2);
+
     console.log(`added ${table} with ${JSON.stringify(data)}`);
   };
 
