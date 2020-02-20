@@ -32,7 +32,7 @@ const synchDB = () => {
     if (!data || !table) {
       throw new Error('No data or table is passed in');
     }
-    db[table] = data;
+    db[table].push(data);
     console.log(`added ${table} with ${JSON.stringify(data)}`);
   };
 
